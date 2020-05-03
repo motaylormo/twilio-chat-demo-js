@@ -1,6 +1,6 @@
 var credentials = require('./credentials.json');
 var express = require('express');
-var TokenProvider = require('./lib/tokenprovider');
+var TokenProvider = require('./tokenprovider');
 
 var app = new express();
 var tokenProvider = new TokenProvider(credentials);
