@@ -1,0 +1,195 @@
+.imessage {
+	width: 100%;
+	max-width: 320px;
+	display: grid;
+	margin: auto;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	background-color: #dbe2ed;
+}
+.imessage * {
+	font-family: inherit;
+}
+.imessage .in dd,.imessage .out dd {
+	position: relative;
+	clear: both;
+	z-index: 1;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	padding: 0.3em 0.8em;
+	margin: 0.25em 0.5em;
+	max-width: 60%;
+	border-radius: 1em;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+}
+.imessage .in dd::before,.imessage .out dd::before,.imessage .in dd::after,.imessage .out dd::after {
+	content: "";
+	z-index: -1;
+	position: absolute;
+}
+.imessage .in dd::before,.imessage .out dd::before {
+	top: 0;
+	left: 0.5em;
+	right: 0.5em;
+	height: 1em;
+	border-radius: 1em;
+	background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+}
+.imessage .in dd::after,.imessage .out dd::after {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 1em;
+	filter: contrast(150%) brightness(150%);
+	opacity: 0.65;
+}
+.imessage .out dd {
+	float: right;
+	background-color: #82c1ff;
+}
+.imessage .out dd:after {
+	background: linear-gradient(transparent, #82c1ff);
+}
+.imessage .in dd {
+	float: left;
+	background: #e0e0e0;
+}
+.imessage .in dd:after {
+	background: linear-gradient(transparent, #e0e0e0);
+}
+.imessage dd.pic {
+	padding: 0;
+	overflow: hidden;
+}
+.imessage dd.pic img {
+	width: 100%;
+	display: block;
+}
+.imessage dd.pic:before,.imessage dd.pic::after {
+	z-index: 0;
+}
+.imessage dd.pic::after {
+	height: 0.75em;
+	opacity: 0.8;
+	background: linear-gradient(transparent, white) !important;
+}
+.imessage dd a {
+	word-break: break-all;
+	color: #084be6;
+}
+.imessage .time,
+.imessage.grouptext dt,
+.imessage .read {
+	font-size: 0.75em;
+	color: #8692a7;
+	text-shadow: 0 1px 0 white;
+	clear: both;
+}
+.imessage .time {
+	font-weight: bold;
+	display: block;
+	margin: auto;
+	padding: 0.5rem;
+}
+.imessage .read {
+	float: right;
+	display: table;
+	padding: 0 1rem;
+	margin: 0;
+}
+.imessage.grouptext .in dt {
+	padding-left: 2em;
+	display: table;
+}
+.imessage.grouptext .out dt {
+	display: none;
+}
+
+.imessage .contact {
+	position: relative;
+	margin: 0;
+	font-size: 1.1rem;
+	padding: 0.75rem;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 -1.5px 0 rgba(0, 0, 0, 0.4);
+	background: linear-gradient(to bottom, #b2bdcc, #8a9cb4 50%, #7c91ad 50%, #6e85a3);
+	box-shadow: 0 2px 0 black;
+	text-align: center;
+	padding-left: 5.5em;
+	padding-right: 4.5em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.imessage .contact:before,.imessage .contact:after {
+	position: absolute;
+	top: 0.4rem;
+	bottom: 0.4rem;
+	min-width: 2.5rem;
+	backdrop-filter: brightness(80%) saturate(200%);
+	border-radius: 0.5rem;
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8), 0 1px 1px rgba(255, 255, 255, 0.4);
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	font-size: 0.65em;
+	padding: 0.75em;
+}
+.imessage .contact:before {
+	left: 0.4rem;
+	content: "Messages";
+}
+.imessage .contact:after {
+	right: 0.4rem;
+	content: "Edit";
+}
+
+
+#channel-message-send {
+	display: grid;
+	grid-template-columns: auto auto;
+	position: relative;
+	background: linear-gradient(to top, #c5c7cb, #fafbfb);
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	margin: auto;
+}
+
+#channel-message-send input,
+#channel-message-send textarea,
+#channel-message-send button {
+	margin: 0.25rem;
+	border-radius: 1rem;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.4), 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+#channel-message-send textarea,
+#channel-message-send input {
+	display: block;
+	padding: 0.25em 0.75em;
+	box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.7);
+	background: white;
+	word-wrap: break-word;
+	caret-color: #2860ee;
+}
+textarea {
+	resize: none;
+}
+
+#channel-message-send button {
+	display: block;
+	background-image: linear-gradient(to bottom, #82c1ff 0%, #084be6 50%);
+	color: white;
+}
+/* --- green button --- */
+.imessage.sms + #channel-message-send button {
+	background-image: linear-gradient(to bottom, #8fd13e 0%, #1d9200 50%);
+	background-color: #8fd13e;
+}
+
+.imessage.sms .out dd,.imessage .out.sms dd {
+	background: #8fd13e;
+}
+.imessage.sms .out dd:after,.imessage .out.sms dd:after {
+	background: linear-gradient(transparent, #8fd13e);
+}
